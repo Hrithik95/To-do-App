@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 mongoose.set("strictQuery", false);
 // connect to the database
-mongoose.connect('mongodb://0.0.0.0:27017/contacts_list_db');
+mongoose.connect('mongodb+srv://Hrithik:Hrithik1995@cluster0.h4n9ic3.mongodb.net/To-Do-App?retryWrites=true&w=majority');
 
 //check if the connection is successful or not.(acquire the connection).
 const db=mongoose.connection;

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> <%= title%></title>
+    <script src="https://kit.fontawesome.com/50f489a038.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/css/todos.css">
+</head>
+<body>
+    <div class="main-container">
+    <div class="header">
+        
+        <h1 class="title">TODO App</h1>
+    </div>
+    
+    <div class="form">
+        <form action="create_todo" method="post">
+            <div class="description">
+                
+                <input type="text" name="description" required></input>
+                <h4>Description</h4>
+            </div>
+            <div class="rest">
+                <div class="Category">
+                    <h3>Category</h3>
+                    <select name="category" required>
+
+                        <option>PERSONAL</option>
+                        <option>WORK</option>
+                        <option>SCHOOL</option>
+                        <option>COURSE</option>
+                        <option>OTHER</option>
+
+                    </select>
+                 </div>
+                 <div class="date">
+                    <h3>Date</h3>
+                    <input type="date" name="date" required>
+                 </div>
+            </div>
+            <div class="submit">
+                <i class="fa-solid fa-square-plus fa-lg"></i>
+                <input type="submit"  class="btn" id="add" value="ADD TASK">
+            </div>
+        </form>
+    </div>
+
+
+    <div class="print">
+
+            <form action="/delete-todo" method="get">
+                <table class="table">
+                    <thead class="thead">
+                        <tr>
+                          <th><i class="fa-solid fa-circle-check"></i></th>
+                          <th>Task</th>
+                          <th>Category</th>
+                        <th><i class="fa-solid fa-calendar-check"></i>Due date</th>
+                        </tr>
+                     </thead>
+                 <tbody class="tbody">
+                    <% for(let i of task) { %>
+                      <tr>
+                           <td> <input type="checkbox" name="<%= i.id %>" ></td>
+                           <td> <p id="task-description"><%= i.description %></p></td>
+                            <td><p id="task-category"><%= i.category %></p></td>
+                            <td><p id="due-date"><%= i.date.toDateString() %></p></td>
+                      </tr>
+                
+                    <% } %>
+                </tbody>
+                       
+</table>
+        <div class="icon-btn">
+            <i class="fa-solid fa-trash"></i>
+            <input type="submit" class="btn" value="DELETE TASK">
+        
+
+        </div>
+        </form>
+
+    
+ </div>
+</div> 
+</body>
+</html>
